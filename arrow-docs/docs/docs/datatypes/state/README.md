@@ -113,7 +113,9 @@ stackOperations().run(Nel.of("hello").some())
 If we only care about the resulting String and not the final state, then we can use `runA`:
 
 ```kotlin:ank
-stackOperations().runA(Nel.of("hello", "world", "!").some())
+import arrow.syntax.state.*
+
+stackOperations().run(Nel.of("hello", "world", "!").some()).value
 ```
 
 Available Instances:

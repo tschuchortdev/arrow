@@ -267,21 +267,6 @@ class StateT<F, S, A>(
      */
     fun run(initial: S, MF: Monad<F>): HK<F, Tuple2<S, A>> = MF.flatMap(runF) { f -> f(initial) }
 
-    /**
-     * Run the stateful computation within the context `F` and get the value [A].
-     *
-     * @param s initial state to run stateful computation.
-     * @param MF [Monad] for the context [F].
-     */
-    fun runA(s: S, MF: Monad<F>): HK<F, A> = MF.map(run(s, MF)) { it.b }
-
-    /**
-     * Run the stateful computation within the context `F` and get the state [S].
-     *
-     * @param s initial state to run stateful computation.
-     * @param MF [Monad] for the context [F].
-     */
-    fun runS(s: S, MF: Monad<F>): HK<F, S> = MF.map(run(s, MF)) { it.a }
 }
 
 /**

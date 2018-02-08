@@ -73,6 +73,7 @@ fun <S, A> StateT<IdHK, S, A>.run(initial: S): Tuple2<S, A> = run(initial, monad
  *
  * @param initial state to start stateful computation.
  */
+@Deprecated("use run().value", replaceWith = ReplaceWith("run().value", "arrow.syntax.state.*"))
 fun <S, A> StateT<IdHK, S, A>.runA(initial: S): A = run(initial).b
 
 /**
@@ -80,6 +81,7 @@ fun <S, A> StateT<IdHK, S, A>.runA(initial: S): A = run(initial).b
  *
  * @param initial state to start stateful computation.
  */
+@Deprecated("use run().state", replaceWith = ReplaceWith("run().state", "arrow.syntax.state.*"))
 fun <S, A> StateT<IdHK, S, A>.runS(initial: S): S = run(initial).a
 
 /**
